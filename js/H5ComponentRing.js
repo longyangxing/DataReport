@@ -1,4 +1,4 @@
-// 折线图组件js代码
+// 环图组件js代码
 var H5ComponentRing = function( name , cfg ){
 	if( cfg.data.length > 1){
 		cfg.data = cfg.data.slice( 0 , 1 );

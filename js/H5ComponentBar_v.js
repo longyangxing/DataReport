@@ -1,4 +1,4 @@
-// 柱状图图组件js代码
+//垂直柱状图图组件js代码
 var H5ComponentBar_v = function( name , cfg ){
 	var component = new H5ComponentBar( name , cfg);
 	//设置每一项的宽度
