@@ -1,0 +1,52 @@
+/*柱图图文样式*/
+.h5_component_bar {}
+.h5_component_bar .line{
+	height: 15px;
+	line-height: 15px;
+	font-size:  12px;
+	margin-bottom: 15px;
+	font-family: "微软雅黑";
+}
+.h5_component_bar .name{
+	width: 60px;
+	float: left;
+	color: #000;
+	text-align: center;
+}
+.h5_component_bar .rate{
+	height: 15px;
+	margin-left: 5px;
+	float: left;
+	position: relative;
+	border-radius: 3px;
+}
+.h5_component_bar .rate .bg{
+	width: 0;
+	height: 100%;
+	position: absolute;
+	background-color: #99c0ff;
+	left: 0;
+	top: 0;
+	border-radius: 3px;
+}
+.h5_component_bar .per{
+	color: #99c0ff;
+	width: 20px;
+	margin-left: 5;
+	float: left;
+	opacity: 0;
+}
+.h5_component_bar_onLoad .rate .bg{
+	width: 100%;
+    transition: all 1s 0.5s;
+}
+.h5_component_bar_onLoad .per{
+	opacity: 1;
+	transition: all 1s 1.5s;
+}
+.h5_component_bar_onLeave .rate .bg{
+	width: 0;
+}
+.h5_component_bar_onLeave .per{
+	opacity:0;
+}

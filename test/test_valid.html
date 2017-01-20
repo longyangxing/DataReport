@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+	<style type="text/css">
+		body{
+			margin: 0;
+			padding: 0;
+		}
+		.component{
+			width: 50%;
+			height: 50px;
+			margin-bottom: 20px;
+			background-color: #eee;
+			display: none; 
+		}
+	</style>
+	<script type="text/javascript" src="../js/lib/jquery.js"></script>
+	<script type="text/javascript" src="../js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../js/lib/jquery.fullPage.js"></script>
+	
+	<script type="text/javascript">
+		$(function(){
+			$('#h5').fullpage({
+				'sectionsColor' : ['#254875','#00FF00','#254578'], 
+				 onLeave:function( index, nextIndex, direction ){
+				 	$('#h5').find('.page').eq(index-1).trigger('onLeave');
+				 },
+				 afterLoad:function( anchorLink, index ){
+				 	$('#h5').find('.page').eq(index-1).trigger('onLoad');
+				 }
+			});
+			//页面离开时执行函数
+			$('.page').on('onLeave',function(){
+				 console.log( this.id,'====>','onLeave');
+				 $(this).find('.component').trigger('onLeave');				
+			});
+
+			//页面载入时执行函数
+			$('.page').on('onLoad',function(){
+				console.log( this.id, '===>', 'onLoad');
+				$(this).find('.component').trigger('onLoad');
+			});
+
+			//component离场动画
+			$('.component').on('onLeave',function(){
+				$(this).fadeOut();
+				return false;
+			});
+
+			//入场动画
+			$('.component').on('onLoad',function(){
+				$(this).fadeIn();
+				return false;
+			})
+		});
+	</script>
+
+</head>
+<body>
+	<div id="h5">
+		<div class="page section" id="page-1">
+			<div class="component logo">logo</div>
+			<div class="component slogan">slogan</div>
+		</div>
+		<div class="page section" id="page-2">
+			<div class="component desc">描述信息</div>
+		</div>
+		<div class="page section" id="page-3">
+			<div class="component desc">描述信息</div>
+		</div>
+	</div>
+</body>
+</html>

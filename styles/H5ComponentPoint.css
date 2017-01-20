@@ -1,0 +1,24 @@
+/*散点图图文样式*/
+.h5_component_point{
+	
+}
+.h5_component_point .point{
+	color: #fff;
+	display: block;
+	background-color: #ccc;
+	position: absolute;
+	border-radius: 50%;
+}
+.h5_component_point .point .name{
+	height: 30px;
+	text-align: center;
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	margin-top: -15px;
+	font-size: 15px;
+	font-family: '微软雅黑';
+}
+.h5_component_point .point .rate{
+	font-size: 0.5em;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+	<style type="text/css">
+		body{
+			margin: 0;
+			padding: 0;
+			background-color: #000;
+		}
+		.iphone{
+			width: 340px;
+			height: 540px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin: -270px 0 0 -170px;
+			background-color: #fff;
+			z-index: -999;
+		}
+		/*.h5_component_base{
+			transition: all 2s;
+		}
+		.h5_component_base_onLoad{
+			opacity: 1;
+		}
+		.h5_component_base_onLeave{
+			opacity: 0;
+		}*/
+	</style>
+	<script type="text/javascript" src="../js/H5ComponentBase.js"></script>
+	<script type="text/javascript" src="../js/lib/jquery.js"></script>
+	<link rel="stylesheet" href="../styles/H5ComponentBase.css"/>
+	
+	<script type="text/javascript" src="../js/H5ComponentRadar.js"></script>
+	<link rel="stylesheet" href="../styles/H5ComponentRadar.css"/>
+</head>
+<body>
+	<!-- 用于测试开发H5H5ComponentBar组件测试 -->
+	<div class="iphone" >
+	</div>
+
+	<script type="text/javascript">
+
+		var cfg = {
+			type : 'radar',
+			height : 600,
+			width: 600,
+			center: true,
+			data : [
+				 [ 'Js' , .6 , '#ff7676' ],
+				 [ 'Css' , .7 ],
+				 [ 'html' , .3 ],
+				 [ 'React' , .6 ],
+				 [ 'Less' , .4 ]
+				],
+			css:{
+				// top:'50%'
+				bottom : 100,
+				opacity : 1
+			},
+			animateIn :{ opacity : 1 , bottom : 200},
+			animateOut :{ opacity : 0 ,bottom : 100} 
+		}
+
+		var component = new H5ComponentRadar( 'myradar' , cfg );
+		$( '.iphone' ).append( component );
+
+
+
+		var leave = false;
+		$( 'body' ).click(function(){
+			leave = !leave;
+
+			component.trigger( leave === true ? 'onLeave' : 'onLoad' );
+		})
+		
+	</script>
+</body>
+</html>
